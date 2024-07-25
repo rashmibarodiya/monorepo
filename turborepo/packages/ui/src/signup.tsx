@@ -7,45 +7,13 @@ import { useState } from "react"
 import axios from 'axios'
 import {  useRouter } from "next/navigation"
 
-function Signup() {
-   // require('dotnev').config()
-   // const backendUrl= process.env.BACKEND_URL;
-
+export function Signup(props :{
+    onClick : (username : string, password : string) => void
+}) {
+   
    const router = useRouter()
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const url = `/api/admin/signup`;
- 
-//my-app/src/pages/api/admin/signup/route.ts
-
-
-const handleSignup = async ( username: string, password: string): Promise<void> => {
-  try {
-    const response = await axios.post(url, {
-      username,
-      password,
-    }, {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-
-    console.log('d');
-    console.log(response.data);
-    // localStorage.setItem("token", response.data.token);
-    // window.location("/");
-
-    alert(response.data.msg);
-    router.push("/signin")
-  } catch (err) {
-    alert(err);
-    console.log('Error occurred');
-    console.log(err);
-  }
-};
-
- //const url = 'admin/signup'
- 
 
     return (
         <>
@@ -94,9 +62,9 @@ const handleSignup = async ( username: string, password: string): Promise<void> 
                     <br />
                     
                     <Button
-                        onClick={() => {
-                                    handleSignup(username,password)
-
+                        onClick={async() => {
+                            props.onClick(username, password )
+                                    
                             
                         }}
                         size={"large"}
@@ -113,4 +81,3 @@ const handleSignup = async ( username: string, password: string): Promise<void> 
     )
 }
 
-export default Signup
