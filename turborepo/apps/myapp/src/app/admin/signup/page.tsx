@@ -9,7 +9,7 @@ function SignupFront() {
 
     const handleSignup = async (username: string, password: string): Promise<void> => {
         try {
-            const response = await axios.post("/client/api/signup", {
+            const response = await axios.post("/admin/api/signup", {
                 username,
                 password,
             }, {
