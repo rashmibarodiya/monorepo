@@ -1,46 +1,33 @@
-
+// turborepo/packages/ui/src/signup.tsx
 
 'use client';
 
-import { Button, Typography, Card, TextField } from "@mui/material"
-import { useState } from "react"
-import axios from 'axios'
-import {  useRouter } from "next/navigation"
+import { Button, Typography, Card, TextField } from "@mui/material";
+import { useState } from "react";
 
-export function Signup(props :{
-    onClick : (username : string, password : string) => void
+export function Signup(props: {
+    onClick: (username: string, password: string) => void
 }) {
-   
-   const router = useRouter()
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+    const [name, setName] = useState("");
+    const [pass, setPass] = useState("");
 
     return (
         <>
-
-
             <div style={{
                 marginTop: 150,
                 marginBottom: 10,
                 display: "flex",
                 justifyContent: "center",
-
             }}>
-                <Typography fontSize={20} >Welcome to Coursera. Signup below</Typography>
-
-
+                <Typography fontSize={20}>Welcome to Coursera. Signup below</Typography>
             </div>
             <div style={{
                 display: "flex",
                 justifyContent: "center"
             }}>
-
-                <Card  style={{ padding: 20  , borderRadius : 10 ,backgroundColor: '#839192'}} >
+                <Card style={{ padding: 20, borderRadius: 10, backgroundColor: '#839192' }}>
                     <TextField
-                   // value={username}
-                        onChange={(e) => {
-                            setUsername(e.target.value)
-                        }}
+                        onChange={(e) => setName(e.target.value)}
                         fullWidth={true}
                         id="outlined-basic"
                         label="username"
@@ -49,9 +36,7 @@ export function Signup(props :{
                     <br />
                     <br />
                     <TextField
-                        onChange={(e) => {
-                            setPassword(e.target.value)
-                        }}
+                        onChange={(e) => setPass(e.target.value)}
                         fullWidth
                         id="outlined-basic"
                         label="password"
@@ -60,24 +45,15 @@ export function Signup(props :{
                     />
                     <br />
                     <br />
-                    
                     <Button
-                        onClick={async() => {
-                            props.onClick(username, password )
-                                    
-                            
-                        }}
+                        onClick={() => props.onClick(name, pass)}
                         size={"large"}
                         variant="outlined"
-
-
-                    >Signup</Button>
-
+                    >
+                        Signup
+                    </Button>
                 </Card>
             </div>
-
-
         </>
-    )
+    );
 }
-

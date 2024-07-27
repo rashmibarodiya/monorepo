@@ -6,7 +6,7 @@ import { Signup } from "@repo/ui/signup";
 
 export default function Home() {
   return (
-    <Signup></Signup>
+    // <Signup></Signup>
     // <div className={styles.page}>
     //   <main className={styles.main}>
     //     <Image
