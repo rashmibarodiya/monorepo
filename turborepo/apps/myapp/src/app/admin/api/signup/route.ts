@@ -14,7 +14,7 @@ export async function POST(request: NextRequest) {
         const reqBody = await request.json();
         const { username, password } = reqBody;
         console.log(reqBody);
-        const admin = Admin.findOne(username)
+        const admin = await Admin.findOne({username})
         if(admin){
             return NextResponse.json({
                 msg : "Admin already exists"
