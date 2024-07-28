@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-
+//import {title} from '@repo/store/src/atom/Courses'
 const AdminDashboard = () => {
   return (
     <div>
